@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sign up</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('.static', filename='sign_up_page_style.css') }}"
+</head>
+
+<body>
+    <div class="login-box">
+        <img src="{{ url_for('uploaded_file', filename='gameon-high-resolution-logo-transparent.png') }}"
+        style="width: 220px; height:80px; margin-right: 25px; padding: 10px; margin: auto;display: block;  ">
+        <h2>Sign Up</h2>
+        <form action="{{ url_for('sign_up_bp.signup') }}" method="post">
+            <div class="user-box">
+                <input type="text" name="username" required="">
+                <label>Username</label>
+            </div>
+            <div class="user-box">
+                <input type="password" name="password" required="" class="special-input">
+                <label>Password</label>
+            </div>
+            <div class="row">
+                <input type="submit" value="Submit" class="special-input">
+                <a href="/login" class="padding-a">
+                  Login
+                </a>
+            </div>
+        </form>
+        {% if error %}
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>

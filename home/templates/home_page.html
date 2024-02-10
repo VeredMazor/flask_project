@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+        <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Add Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-fz5dtnEyWV9rD2OQ0eGQpW0Nl1iJOT/yFaYGaopz8zXrfWlI4tzS/9O2KxOxU0aA" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="{{ url_for('.static', filename='home_page_style.css') }}">
+</head>
+<body>
+    <header class="p-3 mb-3 border-bottom header-home-page">
+        <div class="container">
+          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/home" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
+               <img src="{{ url_for('uploaded_file', filename='gameon-high-resolution-logo-transparent.png') }}"
+               style="width: 220px; height:80px; margin-right: 25px; padding: 10px;">
+            </a>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+              <li><a href="{{ url_for('home_page_bp.home_page') }}" class="nav-link px-2 link-secondary nav-a ">Home</a></li>
+                {% if is_admin %}
+                    <li><a href="/admin_dashboard" class="nav-link px-2 link-body-emphasis nav-a">Admin Dashboard</a></li>
+                {% endif %}
+            </ul>
+            <ul class="nav col-12 col-lg-auto mb-2 justify-content-center mb-md-0 ml-auto">
+               <li><a href="/" class="nav-link px-2 link-body-emphasis logout-a">Logout</a></li>
+            </ul>
+            </div>
+          </div>
+        </div>
+    </header>
+
+
+    <div class="row" style="margin: 5%;">
+            {% if games %}
+                    {% for game in games %}
+                        <a href="/game_info/{{ game.title }}">
+                            <div class="card containerProjects">
+                                  <img src="{{ url_for('uploaded_file', filename=game.image) }}"  alt="Uploaded Image"
+                                  style="height:30vh;width:152px;">
+                                <div class="overlayProjects">{{game.title}}</div>
+                            </div>
+                        </a>
+                    {% endfor %}
+
+            {% else %}
+                <p style="color: white;">No images uploaded yet.</p>
+            {% endif %}
+    </div>
+
+
+    <footer class="py-3 my-4 footer">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+          <li class="nav-item"><a href="/home" class="nav-link px-2 text-body-secondary nav-a">Home</a></li>
+          <li class="nav-item"><a href="/home/faqs" class="nav-link px-2 text-body-secondary nav-a">FAQs</a></li>
+          <li class="nav-item"><a href="/home/about" class="nav-link px-2 text-body-secondary nav-a">About</a></li>
+        </ul>
+        <p class="text-center text-body-secondary p-footer">© 2024 GameOn</p>
+    </footer>
+
+
+</body>
+</html>

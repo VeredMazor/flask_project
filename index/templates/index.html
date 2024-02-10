@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('.static', filename='index_style.css') }}">
+</head>
+<body>
+ {% with messages = get_flashed_messages() %}
+         {% if messages %}
+               {% for message in messages %}
+                    <p style="text-align: center; color: white;">{{ message }}</p>
+               {% endfor %}
+         {% endif %}
+      {% endwith %}
+
+<div class="login-box">
+    <h3 style="color: white;">Welcome Gameon website</h3>
+
+    <a href="/login">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      login
+    </a>
+    <a href="/signup" class="padding-a">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      signup
+    </a>
+
+
+</div>
+
+</body>
+</html>

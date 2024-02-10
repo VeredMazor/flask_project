@@ -1,0 +1,171 @@
+/**game_info_style**/
+
+
+body {
+  margin:0;
+  padding:0;
+  font-family: sans-serif;
+  background: linear-gradient(#0e1722, #243b55);
+}
+
+.header-home-page {
+    background-color: #0c141e;
+}
+
+.nav-a {
+    color: #03e9f4;
+}
+
+.nav-a:hover {
+  background: #03e9f4;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #03e9f4,
+              0 0 25px #03e9f4,
+              0 0 50px #03e9f4,
+              0 0 100px #03e9f4
+}
+
+.border-bottom {
+    border-bottom: 1px solid #0c141e!important;
+}
+
+
+.game-image {
+  display: block;
+  margin: 0 auto; /* Center the image horizontally */
+  width: 400px; /* Set the width of the image */
+  height: 300px; /* Set the height of the image */
+}
+
+
+.login-box {
+  margin: auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  width: 70%;
+  padding: 40px;
+  background: rgba(0,0,0,.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+}
+
+
+.h2-game_info_style {
+    color: #F0F0F0;
+    padding: 35px;
+    /* text-align: center; */
+}
+
+.text-info-order{
+    padding-top: 5px;
+    padding-left: 15px;
+    padding-bottom 15px;
+}
+
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+.row {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to next line */
+}
+
+.column {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.description-column {
+    max-width: 500px; /* Set maximum width for description column */
+    flex: 1; /* Make description column take remaining space */
+}
+
+
+
+button{
+  margin-top: 30px;
+  margin-bottom: 20px;
+  margin-left: 15px;
+  padding: 10px 10px;
+  background-color: #050801;
+  color: #03e9f4;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  letter-spacing: 4px;
+  overflow: hidden;
+  transition: 0.5s;
+  cursor: pointer;
+  background-color: transparent;
+  background-repeat: no-repeat;
+}
+
+button:hover{
+    background: #03e9f4;
+    color: white;
+    box-shadow: 0 0 5px #03e9f4,
+                0 0 25px #03e9f4,
+                0 0 50px #03e9f4,
+                0 0 200px #03e9f4;
+}
+
+
+
+/* Style for the comment container */
+.comment-container {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #1b2838;
+}
+
+/* Style for the username */
+.comment-username {
+    font-weight: bold;
+    color: #A2c1e4;
+    padding: 15px;
+}
+
+/* Style for the comment text */
+.comment-text {
+    margin-top: 5px;
+    color: white;
+    padding: 5px;
+}
+
+/* Style for the delete link */
+.delete-comment-link {
+    color: #999;
+    text-decoration: none;
+    right: 0;
+    color: orange;
+    float: right;
+}
+
+.delete-comment-link:hover {
+    color: #c00;
+}
+
+
+
+.footer {
+    background-color: #0c141e;
+}
+
+.p-footer {
+    color: #c7c9c8;
+}
+
+
+
+

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FAQs</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('.static', filename='faqs_page_style.css') }}">
+</head>
+<body>
+
+
+    <header class="p-3 mb-3 border-bottom header-home-page">
+        <div class="container">
+          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/home" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
+               <img src="{{ url_for('uploaded_file', filename='gameon-high-resolution-logo-transparent.png') }}"
+               style="width: 220px; height:80px; margin-right: 25px; padding: 10px;">
+            </a>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+              <li><a href="/home" class="nav-link px-2 link-secondary nav-a ">Home</a></li>
+              {% if is_admin %}
+                    <li><a href="/admin_dashboard" class="nav-link px-2 link-body-emphasis nav-a">Admin Dashboard</a></li>
+              {% endif %}
+            </ul>
+
+          </div>
+        </div>
+    </header>
+
+    <h2 style="color: white; text-align: center; padding: 30px;">FAQs</h2>
+    <div class="faq-container">
+        <div class="faq">
+             <h5>Q: What actions are available to regular users on the site? </h5>
+            <p>A: Regular users have the ability to browse and access detailed information about
+            a wide range of games uploaded by the site's administrators. Additionally, they can actively
+            engage with the gaming community by leaving comments on individual game pages.
+            Users also have the option to delete any comments they've posted, giving them control
+            over their interactions and contributions.</p>
+        </div>
+        <div class="faq">
+            <h5>Q: What features and privileges does an administrator have?</h5>
+            <p>A: Administrator hold special permissions that allow them to manage and curate the platform's
+            gaming content. He can upload information and details about various games, expanding the
+            platform's offerings and keeping it updated with the latest releases. Like regular users,
+            administrator can participate in discussions by adding comments to games.</p>
+        </div>
+    </div>
+
+    <footer class="py-3 my-4 footer">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+          <li class="nav-item"><a href="/home" class="nav-link px-2 text-body-secondary nav-a">Home</a></li>
+          <li class="nav-item"><a href="/home/faqs" class="nav-link px-2 text-body-secondary nav-a">FAQs</a></li>
+          <li class="nav-item"><a href="/home/about"  class="nav-link px-2 text-body-secondary nav-a">About</a></li>
+        </ul>
+        <p class="text-center text-body-secondary p-footer">© 2024 GameOn</p>
+    </footer>
+
+</body>
+</html>

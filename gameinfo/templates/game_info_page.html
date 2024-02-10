@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Info</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ url_for('.static', filename='game_info_style.css') }}">
+</head>
+
+<body>
+    <header class="p-3 mb-3 border-bottom header-home-page">
+        <div class="container">
+          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/home" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
+               <img src="{{ url_for('uploaded_file', filename='gameon-high-resolution-logo-transparent.png') }}"
+               style="width: 220px; height:80px; margin-right: 25px; padding: 10px;">
+            </a>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+              <li><a href="/home" class="nav-link px-2 link-secondary nav-a ">Home</a></li>
+              {% if current_user.is_admin %}
+                <li><a href="/admin_dashboard" class="nav-link px-2 link-body-emphasis nav-a">Admin Dashboard</a></li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+    </header>
+
+    <div class="login-box">
+        <h2 class="h2-game_info_style">{{ game.title }}</h2>
+        <div class="row">
+            <div class="column">
+                <img class="game-image" src="{{ url_for('uploaded_file', filename=game.image) }}" alt="Game Image">
+            </div>
+            <div class="column description-column">
+                <div class="text-info-order">
+                    <p style="color: white;"><b>Description:</b> {{ game.description }}</p>
+                    <p style="color: white;"><b>Platform:</b> {{ game.platform }}</p>
+                    <p style="color: white;"><b>Publisher:</b> {{ game.publisher }}</p>
+                    <p style="color: white;"><b>Release Date:</b> {{ game.release_date }}</p>
+                </div>
+            </div>
+        </div>
+
+    <!-- Add this to your game_info_page.html -->
+
+        <button onclick="myFunction()" id="myBtn">Add Comments</button>
+
+        <span id="dots" style="display: none;">
+
+        <form action="{{ url_for('game_info_bp.add_comment', game_title=game.title) }}" method="post" >
+            <div class="mb-3">
+                <label for="commentText" style="color: #F0F0F0" class="form-label">Your Comment</label>
+                <textarea class="form-control" style="color: white; background-color: #1b2838;" id="commentText" name="comment_text" rows="3" required></textarea>
+            </div>
+
+            <button type="submit" >Submit Comment</button>
+        </form>
+
+        <hr>
+
+    <!-- Display existing comments -->
+
+
+        </span>
+
+
+        {% if game.comments %}
+            <ul>
+                {% for comment in game.comments %}
+                    <div class="comment-container">
+                        <div class="row">x
+                            <span class="comment-username">by {{ comment.user.username }}</span>
+                            {% if comment.user.username == current_user.username %}
+                                <a href="{{ url_for('game_info_bp.delete_comment', comment_id=comment.id) }}" class="delete-comment-link">Delete</a>
+                            {% endif %}
+                        </div>
+                        <p class="comment-text">{{ comment.text }}</p>
+
+                    </div>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p style="color:white; margin-: 25px">No comments yet. Be the first to comment!</p>
+        {% endif %}
+    </div>
+
+
+
+
+
+  <footer class="py-3 my-4 footer">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="/home" class="nav-link px-2 text-body-secondary nav-a">Home</a></li>
+      <li class="nav-item"><a href="/home/faqs" class="nav-link px-2 text-body-secondary nav-a">FAQs</a></li>
+      <li class="nav-item"><a href="/home/about" class="nav-link px-2 text-body-secondary nav-a">About</a></li>
+    </ul>
+    <p class="text-center text-body-secondary p-footer">© 2024 GameOn</p>
+  </footer>
+
+
+    <script>
+        function myFunction() {
+          var dots = document.getElementById("dots");
+          var btnText = document.getElementById("myBtn");
+
+          if (dots.style.display === "inline") {
+            dots.style.display = "none";
+            btnText.innerHTML = "Add Comments";
+          } else {
+            dots.style.display = "inline";
+            btnText.innerHTML = "Close";
+          }
+        }
+    </script>
+
+</body>
+</html>
