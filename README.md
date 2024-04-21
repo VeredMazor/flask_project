@@ -1,4 +1,5 @@
-#Flask Project
+# Flask Project
+
  In this project, I build a web application using Flask,
         a Python web framework. The application aims to provide a platform for
         users to explore and interact with various gaming information.
