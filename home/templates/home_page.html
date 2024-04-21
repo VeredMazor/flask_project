@@ -26,7 +26,7 @@
                 {% endif %}
             </ul>
             <ul class="nav col-12 col-lg-auto mb-2 justify-content-center mb-md-0 ml-auto">
-               <li><a href="/" class="nav-link px-2 link-body-emphasis logout-a">Logout</a></li>
+               <li><a href="/home/logout" class="nav-link px-2 link-body-emphasis logout-a">Logout</a></li>
             </ul>
             </div>
           </div>
@@ -50,6 +50,12 @@
                 <p style="color: white;">No images uploaded yet.</p>
             {% endif %}
     </div>
+
+    {% if error %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+    {% endif %}
 
 
     <footer class="py-3 my-4 footer">

@@ -20,7 +20,7 @@ def login():
         # Validate the username
         user = User.query.filter_by(username=username).first()
 
-        if user and  user and check_password_hash(user.password, password):
+        if user and check_password_hash(user.password, password):
             # If the username and password match, set a cookie and redirect to home page
             login_user(user)  # Login the user
             #resp = make_response(redirect(url_for('home_page_bp.home_page')))
