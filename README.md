@@ -7,8 +7,9 @@
         games and get information about different games.
 ## Installation
 
+```bash
 pip install -r requirements.txt
-
+```
 
 
 ## Images
